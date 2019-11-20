@@ -5,9 +5,13 @@ class Room:
     def __init__(self, name, description, n_to, s_to, w_to, e_to):
         self.name = name
         self.description = description
-        self.n_to = n_to
-        self.s_to = s_to
-        self.w_to = w_to
-        self.e_to = e_to
-    
+        self.n_to = None
+        self.s_to = None
+        self.w_to = None
+        self.e_to = None
+
+    def __repr__(self):
+        return f'your location is****** {self.name}: Some details*** {self.description}'
+ 
+
     
