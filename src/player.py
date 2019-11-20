@@ -5,5 +5,8 @@ class Player:
         self.name = name
         self.current_room = current_room
 
+    def travel_to
+    
+
     def __repr__(self):
-        return f'hello {self.name} your current location is {self.current_room}'
+        return f'Alright {self.name}, your current location is {self.current_room}'
