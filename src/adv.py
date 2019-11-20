@@ -1,24 +1,42 @@
 from room import Room
+from player import Player
+
+class Adv:
+    def __init__ (self, player, rooms =[]):
+        self.player = player
+        self.rooms = rooms
+
+    def __str__(self):
+        output = ""
+        for player in self.player:
+            output += f'Welcome {player.name} \n'
+        i = 1
+        for room in self.rooms:
+            output += f'{i}. {room.name}'
+        return output
+        
+
+        
 
 # Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mount beckons", "foyer", "NA", "Na", "NAH"),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""", "overlook", "oustide", "nop", "narrow"),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""", "NOPN", "foyer", "NOPW", "NOPEE"),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""", "treasure", "NOSOUTH", "foyer", "NOEAST"),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""", "NNORTHHH", "narrow", "NOWESSTT", "NOEASTTTT"),
 }
 
 
@@ -38,6 +56,13 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+
+new_player = Player(
+    'Shoats McGoats',
+    "outside"
+)
+
+print(new_player)
 
 # Write a loop that:
 #
