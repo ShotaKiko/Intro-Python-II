@@ -29,21 +29,16 @@ class Room:
         eastbound = ["e", "east", "East"]
     
         if input_direction in northbound:
-            return self.n_to == "n"
+            return self.n_to 
         elif input_direction in southbound:
-            return self.s_to == "s"
+            return self.s_to 
         elif input_direction in westbound:
-            return self.w_to == "w"
+            return self.w_to 
         elif input_direction in eastbound:
-            return self.e_to == "e"
+            return self.e_to 
         else:
             return None
     
-    
-    
     def __repr__(self):
-        return f'{self.name}  \nA brief description:\n {self.description}\n Here are your options: [{self.findPossiblePaths()}]'
- 
-
-
+        return f'{self.name}  \n  A brief description:\n {self.description}\n \n Here are your options: [{self.findPossiblePaths()}]'
 

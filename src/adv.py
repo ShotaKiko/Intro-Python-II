@@ -56,11 +56,11 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
-adventurer_name = input("Please enter your name adventurer, glory awaits: ")
+adventurer_name = input(f'\nPlease enter your name adventurer, glory awaits: ')
 
 player_one = Player(adventurer_name, room["outside"])
 
-print(f'{player_one.name} you are currently in the {player_one.current_room}')
+print(f'\n \n{player_one.name} you are currently in the {player_one.current_room}\n \n')
 # Write a loop that:
 #
 # * Prints the current room name
@@ -80,8 +80,8 @@ while user_input not in ending_inputs:
     user_input = input("   In which direction do you want to proceed?")
 
     if user_input in valid_inputs:
-        player_one.current_room = travel(user_input, player_one.current_room)
-        print(f'You are currently in the{player_one.current_room} room.')
+        player_one.travel_to(user_input)
+        print(f' \nYou enter the {player_one.current_room} room. \n')
     elif user_input in ending_inputs:
         print(f'{player_one.name} has left the game.')
     else:

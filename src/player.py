@@ -5,8 +5,13 @@ class Player:
         self.name = name
         self.current_room = current_room
 
-    def travel_to
-    
-
     def __repr__(self):
-        return f'Alright {self.name}, your current location is {self.current_room}'
+        return f' {self.name} {self.current_room}'
+    
+    
+    def travel_to(self, input_direction):
+        newRoom = self.current_room.determinedPathFromCurrent(input_direction)
+        if newRoom is not None:
+            self.current_room = newRoom
+        else:
+            print("There's nowhere to go in that direction, Please try another direction")
