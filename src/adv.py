@@ -1,4 +1,21 @@
 from room import Room
+from player import Player
+
+# class Game:
+    # def __init__ (self, player, rooms =[]):
+    #     self.player = player
+    #     self.rooms = rooms
+
+    # def __str__(self):
+    #     output = ""
+    #     for player in self.player:
+    #         output += f'Welcome {player.name} \n'
+    #     i = 1
+    #     for room in self.rooms:
+    #         output += f'{i}. {room.name} \n'
+    #         i += 1
+    #     return output
+#     
 
 # Declare all the rooms
 
@@ -39,6 +56,11 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+adventurer_name = input(f'\nPlease enter your name adventurer, glory awaits: ')
+
+player_one = Player(adventurer_name, room["outside"])
+
+print(f'\n \n{player_one.name} you are currently in the {player_one.current_room}\n \n')
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +71,24 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+user_input = ""
+valid_inputs = ["n", "north", "North", "s", "south", "South", "w", "west", "West", "e", "east", "East"]
+ending_inputs = ["q", "quit", "Quit", "exit", "Exit"]
+
+while user_input not in ending_inputs:
+    user_input = input("   In which direction do you want to proceed?")
+
+    if user_input in valid_inputs:
+        player_one.travel_to(user_input)
+        print(f' \nYou enter the {player_one.current_room} room. \n')
+    elif user_input in ending_inputs:
+        print(f'{player_one.name} has left the game.')
+    else:
+        print("East? I thought you said Weast! Enter valid direction please!")
+        
+
+
+
+
+
